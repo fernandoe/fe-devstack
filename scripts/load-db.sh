@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-# Load the specified database from a file of the same name.
-#
-# Example:
-#   $ load-db edxapp
-#
-# This will load the edxapp database from a file named exapp.sql.
-
 set -e
 set -o pipefail
 
@@ -17,5 +10,5 @@ then
 fi
 
 echo "Loading the $1 database..."
-docker exec -i edx.devstack.mysql mysql -uroot $1 < $1.sql
+docker exec -i fe.devstack.mysql mysql -uroot -ppassword $1 < databases/$1.sql
 echo "Finished loading the $1 database!"

@@ -14,7 +14,10 @@ dev.build: ## Realiza o build dos projetos
 	./scripts/build.sh
 
 dev.compose.up: ## Inicia a aplicação
-	docker-compose up
+	docker-compose up -d
+
+dev.compose.up.web: ## Inicia a aplicação web
+	docker-compose up web
 
 dev.compose.stop: ## Para a aplicação
 	docker-compose stop
@@ -45,6 +48,10 @@ dev.db.migrate: ## Executa as migrações do Django
 dev.db.dump: ## Realiza os backups dos bancos utilizados
 	./scripts/dump-db.sh fe_conta
 	./scripts/dump-db.sh fe_pessoa
+
+dev.db.load: ## Realiza os backups dos bancos utilizados
+	./scripts/load-db.sh fe_conta
+	./scripts/load-db.sh fe_pessoa
 
 dev.web.install: ## Instala as dependências do node
 	docker-compose run --rm web npm install
