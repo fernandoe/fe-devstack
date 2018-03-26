@@ -19,6 +19,8 @@ repos=(
     "git@github.com:fernandoe/fe-server.git"
 )
 
+name_pattern=".*fernandoe/(.*).git"
+
 _clone ()
 {
     # for repo in ${repos[*]}

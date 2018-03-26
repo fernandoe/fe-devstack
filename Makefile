@@ -8,7 +8,10 @@ export DEVSTACK_WORKSPACE
 export COMPOSE_PROJECT_NAME
 
 dev.clone: ## Clona todos os repositórios
-	./repo.sh clone
+	./scripts/repo.sh clone
+
+dev.clone.status:
+	./scripts/repo.sh status
 
 dev.build: ## Realiza o build dos projetos
 	./scripts/build.sh
