@@ -17,6 +17,9 @@ dev.build: ## Realiza o build dos projetos
 	./scripts/build.sh
 
 dev.compose.up: ## Inicia a aplicação
+	docker-compose up
+
+dev.compose.up.d: ## Inicia a aplicação
 	docker-compose up -d
 
 dev.compose.up.web: ## Inicia a aplicação web
