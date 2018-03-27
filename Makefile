@@ -64,3 +64,6 @@ dev.db.load: ## Realiza os backups dos bancos utilizados
 
 dev.web.install: ## Instala as dependências do node
 	docker-compose run --rm web npm install
+
+%-shell: 
+	docker exec -it fe.devstack.$* env TERM=$(TERM) sh

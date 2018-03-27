@@ -17,6 +17,8 @@ repos=(
     "git@github.com:fernandoe/fe-conta-server.git"
     "git@github.com:fernandoe/fe-pessoa-server.git"
     "git@github.com:fernandoe/fe-server.git"
+    "git@github.com:fernandoe/django-fe-core.git"
+    "git@github.com:fernandoe/django-fe-jwt.git"
 )
 
 name_pattern=".*fernandoe/(.*).git"

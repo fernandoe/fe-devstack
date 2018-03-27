@@ -23,6 +23,7 @@ services:
       - mysql
     environment:
        DATABASE_URL: mysql://root:password@mysql:3306/fe_conta
+       no_proxy: mysql
     stdin_open: true
     tty: true
 
@@ -39,6 +40,7 @@ services:
     environment:
       DJANGO_SETTINGS_MODULE: 'server.settings.docker'
       DATABASE_URL: mysql://root:password@mysql:3306/fe_pessoa
+      no_proxy: mysql,conta
     stdin_open: true
     tty: true
 
@@ -51,10 +53,11 @@ services:
       - "4200:4200"
     volumes:
       - ../fe-server:/app
+    environment:
+      no_proxy: conta,pessoa
     depends_on:
       - conta
       - pessoa
-
 
 volumes:
   mysql-data:
