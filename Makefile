@@ -7,11 +7,14 @@ COMPOSE_PROJECT_NAME=fe
 export DEVSTACK_WORKSPACE
 export COMPOSE_PROJECT_NAME
 
-dev.clone: ## Clona todos os repositórios
+dev.git.clone: ## Clona todos os repositórios do projeto
 	./scripts/repo.sh clone
 
-dev.clone.status:
+dev.git.status: ## Mostra o status dos repositórios do projeto
 	./scripts/repo.sh status
+
+dev.git.pull: ## Atualiza os branchs dos repositórios do projeto
+	./scripts/repo.sh pull
 
 dev.build: ## Realiza o build dos projetos
 	./scripts/build.sh

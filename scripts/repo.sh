@@ -91,6 +91,22 @@ status ()
     cd - &> /dev/null
 }
 
+pull ()
+{
+    currDir=$(pwd)
+    for repo in ${repos[*]}
+    do
+        [[ $repo =~ $name_pattern ]]
+        name="${BASH_REMATCH[1]}"
+
+        if [ -d "$name" ]; then
+            printf "\nGit pull for [%s]:\n" $name
+            cd $name;git pull;cd "$currDir"
+        fi
+    done
+    cd - &> /dev/null
+}
+
 if [ "$1" == "clone" ]; then
     clone
 elif [ "$1" == "whitelabel" ]; then
@@ -102,4 +118,6 @@ elif [ "$1" == "reset" ]; then
     fi
 elif [ "$1" == "status" ]; then
     status
+elif [ "$1" == "pull" ]; then
+    pull
 fi
