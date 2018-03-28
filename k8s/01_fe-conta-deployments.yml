@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: fe-conta
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fe-conta
+    spec:
+      containers:
+      - name: fe-conta
+        image: fernandoe/fe-conta-server
+        ports:
+        - containerPort: 8000
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: 'server.settings.docker'
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: fe-conta
+                key: database_url
