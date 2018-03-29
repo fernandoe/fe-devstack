@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb-fe-conta
+  name: conta
 spec:
   type: LoadBalancer
   ports:

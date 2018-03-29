@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb-fe-server
+  name: server
 spec:
   type: LoadBalancer
   ports:

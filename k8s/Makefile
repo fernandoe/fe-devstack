@@ -13,12 +13,28 @@ create.services:
 	kubectl create -f 03-service-conta.yml
 	kubectl create -f 04-service-pessoa.yml
 
-apply.deploys:
+apply.all:
 	kubectl apply -f 01-deploy-conta.yml
-	kubectl apply -f 01-deploy-pessoa.yml
+	kubectl apply -f 02-deploy-pessoa.yml
+	kubectl apply -f 03-deploy-server.yml
 
 delete.deployments.fe-conta:
 	kubectl delete deployments fe-conta
 
-#%-shell:
-#	kubectl exec -it $(kubectl get pod -l 'app=deploy-conta' -o jsonpath='{.items[0].metadata.name}') -- sh
+%-shell:
+	kubectl exec -it `kubectl get pod -l 'app=deploy-$*' -o jsonpath='{.items[0].metadata.name}'` -- sh
+
+deploy.server:
+	kubectl apply -f 03-deploy-server.yml
+
+deploy.watch.server:
+	reset; while sleep 1; do curl -s -o /dev/null -w "%{http_code}\n" http://52.168.87.187; done
+
+deploy.watch.pods:
+	reset; kubectl get pods --watch
+
+deploy.watch.services:
+	reset; kubectl get services --watch
+
+deploy.watch.deployments:
+	reset; kubectl get deployments --watch

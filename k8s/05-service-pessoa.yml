@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb-fe-pessoa
+  name: pessoa
 spec:
   type: LoadBalancer
   ports:
