@@ -11,7 +11,8 @@ spec:
     spec:
       containers:
       - name: fe-conta
-        image: fernandoe/fe-conta-server
+        image: fernandoe/fe-conta-server:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         env:

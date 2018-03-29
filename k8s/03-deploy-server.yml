@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
       - name: fe-server
-        image: fernandoe/fe-server
+        image: fernandoe/fe-server:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80

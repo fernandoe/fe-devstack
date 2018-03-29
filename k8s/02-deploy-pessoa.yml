@@ -11,7 +11,8 @@ spec:
     spec:
       containers:
       - name: fe-pessoa
-        image: fernandoe/fe-pessoa-server
+        image: fernandoe/fe-pessoa-server:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         env:
