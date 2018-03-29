@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: fe-pessoa
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deploy-pessoa
+    spec:
+      containers:
+      - name: fe-pessoa
+        image: fernandoe/fe-pessoa-server
+        ports:
+        - containerPort: 8000
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: 'server.settings.docker'
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: fe-pessoa
+                key: database_url
