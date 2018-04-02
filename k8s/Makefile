@@ -6,13 +6,17 @@ get.deployments:
 
 create.deploys:
 	kubectl create -f 01-deploy-conta.yml
-	kubectl create -f 02-deploy-pessoa.yml
-	kubectl create -f 03-deploy-server.yml
+	kubectl create -f 01-deploy-pessoa.yml
+	kubectl create -f 01-deploy-endereco.yml
+	kubectl create -f 01-deploy-pagamento.yml
+	kubectl create -f 01-deploy-server.yml
 
 create.services:
-	kubectl create -f 04-service-conta.yml
-	kubectl create -f 05-service-pessoa.yml
-	kubectl create -f 06-service-server.yml
+	kubectl create -f 02-service-conta.yml
+	kubectl create -f 02-service-pessoa.yml
+	kubectl create -f 02-service-endereco.yml
+	kubectl create -f 02-service-pagamento.yml
+	kubectl create -f 02-service-server.yml
 
 apply.deploy.all:
 	kubectl apply -f 01-deploy-conta.yml

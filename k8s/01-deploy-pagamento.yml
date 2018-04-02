@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: fe-pagamento
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deploy-pagamento
+    spec:
+      containers:
+      - name: fe-pagamento
+        image: fernandoe/fe-pagamento-server:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: 'server.settings.docker'
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: fe-pagamento
+                key: database_url

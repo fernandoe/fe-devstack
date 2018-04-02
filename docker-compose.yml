@@ -45,11 +45,28 @@ services:
     stdin_open: true
     tty: true
 
+  endereco:
+    container_name: fe.devstack.endereco
+    image: fernandoe/fe-endereco-server:local
+    ports:
+      - "9002:8000"
+    volumes:
+      - ../fe-endereco-server/src:/app
+    depends_on:
+      - mysql
+      - conta
+    environment:
+      DJANGO_SETTINGS_MODULE: 'server.settings.docker'
+      DATABASE_URL: mysql://root:password@mysql:3306/fe_endereco
+      no_proxy: mysql,conta
+    stdin_open: true
+    tty: true
+
   pagamento:
     container_name: fe.devstack.pagamento
     image: fernandoe/fe-pagamento-server:local
     ports:
-      - "9002:8000"
+      - "9003:8000"
     volumes:
       - ../fe-pagamento-server/src:/app
     depends_on:
@@ -76,6 +93,8 @@ services:
     depends_on:
       - conta
       - pessoa
+      - endereco
+      - pagamento
 
 volumes:
   mysql-data:
