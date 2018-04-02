@@ -49,6 +49,7 @@ dev.compose.createsuperuser.pessoa: ## Cria o usuário principal dentro da aplic
 dev.db.create-databases: ## Cria os bancos de dados
 	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_conta";
 	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_pessoa";
+	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_pagamento";
 
 dev.db.migrate: ## Executa as migrações do Django
 	docker exec -i fe.devstack.conta python manage.py migrate
