@@ -45,4 +45,4 @@ deploy.watch.deployments:
 	reset; kubectl get deployments --watch
 
 kubernetes-dashboard:
-	az aks browse --resource-group rg-fe-microservices --name c-fe-microservices
+	az aks browse --resource-group rg-microservices --name c-microservices
