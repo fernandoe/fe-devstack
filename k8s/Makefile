@@ -20,8 +20,10 @@ create.services:
 
 apply.deploy.all:
 	kubectl apply -f 01-deploy-conta.yml
-	kubectl apply -f 02-deploy-pessoa.yml
-	kubectl apply -f 03-deploy-server.yml
+	kubectl apply -f 01-deploy-pessoa.yml
+	kubectl apply -f 01-deploy-endereco.yml
+	kubectl apply -f 01-deploy-pagamento.yml
+	kubectl apply -f 01-deploy-server.yml
 
 delete.deployments.fe-conta:
 	kubectl delete deployments fe-conta
