@@ -10,3 +10,6 @@ install: install.nginx-ingress.ms install.ingress-ms
 destroy:
 	helm delete ms
 	kubectl delete -f ingress-ms.yml
+
+apply.ingress-ms:
+	kubectl apply -f ingress-ms.yml
