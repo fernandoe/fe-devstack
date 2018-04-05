@@ -2,7 +2,14 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ingress-microservices
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: 'true'
 spec:
+  tls:
+  - hosts:
+    - conta.ms.fernandoe.com
+    secretName: conta-ms-fernandoe-com-tls
   rules:
   - host: conta.ms.fernandoe.com
     http:

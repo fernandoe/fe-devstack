@@ -1,9 +1,30 @@
-helm.install.cert-manager:
+install:
 	helm install \
 		--name cert-manager \
 		--namespace kube-system \
 		--set rbac.create=false \
 		stable/cert-manager
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 helm.delete.cert-manager:
 	helm del --purge cert-manager
@@ -25,3 +46,6 @@ cert.get:
 
 describe.cert.conta:
 	kubectl describe certificate conta-ms-fernandoe-com
+
+dig.conta:
+	dig conta.ms.fernandoe.com

@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: ingress-nginx
 spec:
-  loadBalancerIP: 13.82.89.58
+  loadBalancerIP: 52.226.68.91
   type: LoadBalancer
   selector:
     app: ingress-nginx
