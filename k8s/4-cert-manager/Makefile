@@ -5,13 +5,13 @@ install.cert-manager:
 		--set rbac.create=false \
 		stable/cert-manager
 
-create.issuer.letsencrypt-staging:
-	kubectl create -f acme-staging-issuer.yml
+create.issuer:
+	kubectl create -f acme-production-issuer.yml
 
-create.certificate.staging-conta:
-	kubectl create -f staging-conta-cert.yml
+create.certificate.conta:
+	kubectl create -f certificate-conta.yml
 
-create.certificate.staging-conta.verify:
+create.certificate.conta.verify:
 	kubectl describe certificate conta-ms-fernandoe-com
 
-create: install.cert-manager create.issuer.letsencrypt-staging create.certificate.staging-conta
+create: install.cert-manager create.issuer create.certificate.conta
