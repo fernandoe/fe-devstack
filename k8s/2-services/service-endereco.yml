@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pessoa
+  name: endereco
 spec:
   type: ClusterIP
   ports:
-  - port: 80
+  - name: http
+    port: 80
     targetPort: 8000
   selector:
-    app: deploy-pessoa
+    app: 1-deploy-endereco

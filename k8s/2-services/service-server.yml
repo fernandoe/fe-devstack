@@ -8,4 +8,4 @@ spec:
   - port: 80
     targetPort: 80
   selector:
-    app: deploy-server
+    app: 1-deploy-server

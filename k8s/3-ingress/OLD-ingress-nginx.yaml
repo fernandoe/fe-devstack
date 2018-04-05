@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ingress-nginx
+  name: 3-ingress-nginx
 spec:
   loadBalancerIP: 52.226.68.91
   type: LoadBalancer
   selector:
-    app: ingress-nginx
+    app: 3-ingress-nginx
   ports:
   - name: http
     port: 80
@@ -18,18 +18,18 @@ spec:
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: ingress-nginx
+  name: 3-ingress-nginx
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: ingress-nginx
+        app: 3-ingress-nginx
     spec:
       terminationGracePeriodSeconds: 60
       containers:
-      - image: gcr.io/google_containers/nginx-ingress-controller:0.8.3
-        name: ingress-nginx
+      - image: gcr.io/google_containers/nginx-3-ingress-controller:0.8.3
+        name: 3-ingress-nginx
         imagePullPolicy: Always
         ports:
           - name: http
@@ -55,5 +55,5 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
         args:
-        - /nginx-ingress-controller
+        - /nginx-3-ingress-controller
         - --default-backend-service=$(POD_NAMESPACE)/nginx-default-backend

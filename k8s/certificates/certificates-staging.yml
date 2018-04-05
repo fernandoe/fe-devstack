@@ -17,6 +17,6 @@ spec:
       domains:
       - conta.ms.fernandoe.com
     - http01:
-        ingress: my-ingress
+        ingress: my-3-ingress
       domains:
       - conta.ms.fernandoe.com
