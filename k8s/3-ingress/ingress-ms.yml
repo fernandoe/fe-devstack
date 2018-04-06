@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-microservices
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: conta.ms.fernandoe.com
+      http:
+        paths:
+          - backend:
+              serviceName: conta
+              servicePort: 80
+    - host: pessoa.ms.fernandoe.com
+      http:
+        paths:
+          - backend:
+              serviceName: pessoa
+              servicePort: 80
+    - host: endereco.ms.fernandoe.com
+      http:
+        paths:
+          - backend:
+              serviceName: endereco
+              servicePort: 80
+    - host: pagamento.ms.fernandoe.com
+      http:
+        paths:
+          - backend:
+              serviceName: pagamento
+              servicePort: 80
+  tls:
+    - hosts:
+        - conta.ms.fernandoe.com
+      secretName: conta-ms-fernandoe-com-tls
+    - hosts:
+        - pessoa.ms.fernandoe.com
+      secretName: pessoa-ms-fernandoe-com-tls
+    - hosts:
+        - endereco.ms.fernandoe.com
+      secretName: endereco-ms-fernandoe-com-tls
+    - hosts:
+        - pagamento.ms.fernandoe.com
+      secretName: pagamento-ms-fernandoe-com-tls
