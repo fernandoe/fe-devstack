@@ -10,6 +10,9 @@ create.pagamento:
 create.pessoa:
 	kubectl create -f service-pessoa.yml
 
+create.server:
+	kubectl create -f service-server.yml
+
 create.backend: create.conta create.endereco create.pagamento create.pessoa
 
 apply.conta:
@@ -28,3 +31,9 @@ apply.server:
 	kubectl apply -f service-server.yml
 
 apply.all: apply.conta apply.endereco apply.pagamento apply.pessoa apply.server
+
+create-%:
+	kubectl create -f service-$*.yml
+
+apply-%:
+	kubectl apply -f service-$*.yml

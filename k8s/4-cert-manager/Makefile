@@ -20,6 +20,12 @@ create.certificate.pagamento:
 create.certificate.pessoa:
 	kubectl create -f certificate-pessoa.yml
 
+create.certificate.sms:
+	kubectl create -f certificate-sms.yml
+
+create.certificate.server:
+	kubectl create -f certificate-server.yml
+
 create.certificate.conta.verify:
 	kubectl describe certificate conta-ms-fernandoe-com
 
@@ -31,5 +37,11 @@ create.certificate.pagamento.verify:
 
 create.certificate.pessoa.verify:
 	kubectl describe certificate pessoa-ms-fernandoe-com
+
+create.certificate.sms.verify:
+	kubectl describe certificate sms-ms-fernandoe-com
+
+create.certificate.server.verify:
+	kubectl describe certificate s-fernandoe-com
 
 create: install.cert-manager create.issuer create.certificate.conta
