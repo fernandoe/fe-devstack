@@ -1,11 +1,11 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Issuer
 metadata:
-  name: letsencrypt-staging
+  name: letsencrypt-production
 spec:
   acme:
-    server: https://acme-staging.api.letsencrypt.org/directory
+    server: https://acme-v01.api.letsencrypt.org/directory
     email: "fer.esp@gmail.com"
     privateKeySecretRef:
-      name: letsencrypt-staging
+      name: letsencrypt-production
     http01: {}

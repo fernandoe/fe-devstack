@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: deploy-server
+        app: 1-deploy-server
     spec:
       containers:
       - name: fe-server

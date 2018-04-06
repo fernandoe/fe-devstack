@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        app: deploy-conta
+        app: 1-deploy-conta
     spec:
       containers:
       - name: fe-conta

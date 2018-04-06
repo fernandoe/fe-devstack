@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: conta-ms-fernandoe-com-tls
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-production
   commonName: conta.ms.fernandoe.com
   dnsNames:
   - conta.ms.fernandoe.com

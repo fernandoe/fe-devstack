@@ -1,17 +1,17 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: fe-endereco
+  name: fe-pagamento
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: deploy-endereco
+        app: 1-deploy-pagamento
     spec:
       containers:
-      - name: fe-endereco
-        image: fernandoe/fe-endereco-server:latest
+      - name: fe-pagamento
+        image: fernandoe/fe-pagamento-server:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
@@ -21,5 +21,5 @@ spec:
           - name: DATABASE_URL
             valueFrom:
               secretKeyRef:
-                name: fe-endereco
+                name: fe-pagamento
                 key: database_url

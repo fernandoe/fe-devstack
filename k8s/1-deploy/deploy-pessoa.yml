@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        app: deploy-pessoa
+        app: 1-deploy-pessoa
     spec:
       containers:
       - name: fe-pessoa

@@ -5,6 +5,8 @@ echo "worksparce: $DEVSTACK_WORKSPACE"
 projects=(
     "fe-conta-server"
     "fe-pessoa-server"
+    "fe-endereco-server"
+    "fe-pagamento-server"
 )
 
 for p in ${projects[*]}
