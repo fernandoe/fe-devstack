@@ -30,6 +30,18 @@ spec:
           - backend:
               serviceName: pagamento
               servicePort: 80
+    - host: sms.ms.fernandoe.com
+      http:
+        paths:
+          - backend:
+              serviceName: sms
+              servicePort: 80
+    - host: s.fernandoe.com
+      http:
+        paths:
+          - backend:
+              serviceName: server
+              servicePort: 80
   tls:
     - hosts:
         - conta.ms.fernandoe.com
@@ -43,3 +55,9 @@ spec:
     - hosts:
         - pagamento.ms.fernandoe.com
       secretName: pagamento-ms-fernandoe-com-tls
+    - hosts:
+        - sms.ms.fernandoe.com
+      secretName: sms-ms-fernandoe-com-tls
+    - hosts:
+        - s.fernandoe.com
+      secretName: s-fernandoe-com-tls

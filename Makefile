@@ -60,6 +60,14 @@ dev.db.create-databases: ## Cria os bancos de dados
 	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_pessoa";
 	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_pagamento";
 	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_endereco";
+	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_sms";
+
+dev.db.migrate: ## Executa as migrações do Django
+	docker exec -i fe.devstack.conta python manage.py migrate
+	docker exec -i fe.devstack.pessoa python manage.py migrate
+	docker exec -i fe.devstack.pagamento python manage.py migrate
+	docker exec -i fe.devstack.endereco python manage.py migrate
+	docker exec -i fe.devstack.sms python manage.py migrate
 
 dev.db.dump: ## Realiza os backups dos bancos utilizados
 	./scripts/dump-db.sh fe_conta
