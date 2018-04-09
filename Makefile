@@ -84,4 +84,4 @@ dev.web.install: ## Instala as dependências do node
 	docker exec -it fe.devstack.$* env TERM=$(TERM) sh
 
 %-restart:
-	docker-compose restart fe.devstack.$*
+	docker-compose restart $*
