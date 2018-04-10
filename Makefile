@@ -7,6 +7,9 @@ COMPOSE_PROJECT_NAME=fe
 export DEVSTACK_WORKSPACE
 export COMPOSE_PROJECT_NAME
 
+up:
+	docker-compose up
+
 restart:
 	docker-compose restart conta pessoa endereco pagamento web
 
@@ -36,9 +39,6 @@ git.pull: ## Atualiza os branchs dos repositórios do projeto
 
 dev.build: ## Realiza o build dos projetos
 	./scripts/build.sh
-
-dev.compose.up: ## Inicia a aplicação
-	docker-compose up
 
 dev.compose.up.d: ## Inicia a aplicação
 	docker-compose up -d

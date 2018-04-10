@@ -1,3 +1,6 @@
+namespace.set:
+	kubectl config set-context $(kubectl config current-context) --namespace=default
+
 get.pods:
 	kubectl get pods -o wide
 
