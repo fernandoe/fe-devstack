@@ -3,9 +3,9 @@ kind: CronJob
 metadata:
   name: send-sms
 spec:
-  successfulJobsHistoryLimit: 10
-  failedJobsHistoryLimit: 10
-  schedule: "*/3 * * * *"
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 2
+  schedule: "*/30 * * * *"
   jobTemplate:
     spec:
       template:
