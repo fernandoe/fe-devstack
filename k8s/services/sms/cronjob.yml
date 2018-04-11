@@ -2,10 +2,13 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: send-sms
+  labels:
+    app: send-sms
 spec:
-  successfulJobsHistoryLimit: 2
-  failedJobsHistoryLimit: 2
-  schedule: "*/30 * * * *"
+  suspend: false
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  schedule: "*/3 * * * *"
   jobTemplate:
     spec:
       template:
@@ -13,10 +16,11 @@ spec:
           containers:
           - name: fe-sms-server
             image: fernandoe/fe-sms-server:feature-enviar-mensagem
+            imagePullPolicy: Always
             args:
             - /bin/sh
-            - python
-            - manage.py
+            - -c
+            - make sendsms
             env:
               - name: DJANGO_SETTINGS_MODULE
                 value: 'server.settings.docker'
