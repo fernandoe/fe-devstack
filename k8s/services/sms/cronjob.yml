@@ -8,7 +8,7 @@ spec:
   suspend: false
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 3
-  schedule: "*/3 * * * *"
+  schedule: "*/2 * * * *"
   jobTemplate:
     spec:
       template:
@@ -29,4 +29,16 @@ spec:
                   secretKeyRef:
                     name: fe-sms
                     key: database_url
+              - name: AWS_DEFAULT_REGION
+                value: us-west-2
+              - name: AWS_ACCESS_KEY_ID
+                valueFrom:
+                  secretKeyRef:
+                    name: fe-sms
+                    key: AWS_ACCESS_KEY_ID
+              - name: AWS_SECRET_ACCESS_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: fe-sms
+                    key: AWS_SECRET_ACCESS_KEY
           restartPolicy: OnFailure

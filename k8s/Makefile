@@ -31,9 +31,6 @@ apply.deploy.all:
 delete.deployments.fe-conta:
 	kubectl delete deployments fe-conta
 
-%-shell:
-	kubectl exec -it `kubectl get pod -l 'app=deploy-$*' -o jsonpath='{.items[0].metadata.name}'` -- sh
-
 deploy.server:
 	kubectl apply -f 03-deploy-server.yml
 
@@ -51,3 +48,6 @@ deploy.watch.deployments:
 
 kubernetes-dashboard:
 	az aks browse --resource-group rg-microservices --name c-microservices
+
+%-shell:
+	kubectl exec -it `kubectl get pod -l 'service=$*' -o jsonpath='{.items[0].metadata.name}'` -- sh

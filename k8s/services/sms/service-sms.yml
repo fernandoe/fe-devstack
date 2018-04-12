@@ -8,4 +8,4 @@ spec:
   - port: 80
     targetPort: 8000
   selector:
-    app: 1-deploy-sms
+    service: sms
