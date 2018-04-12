@@ -22,12 +22,6 @@ db.migrate:
 	docker exec -i fe.devstack.pagamento python manage.py migrate
 	docker exec -i fe.devstack.endereco python manage.py migrate
 
-db.createsuperuser.conta:
-	docker-compose run --rm conta python manage.py createsuperuser
-
-compose.createsuperuser.pessoa:
-	docker-compose run --rm pessoa python manage.py createsuperuser
-
 git.clone: ## Clona todos os repositórios do projeto
 	./scripts/repo.sh clone
 
@@ -62,13 +56,6 @@ dev.db.create-databases: ## Cria os bancos de dados
 	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_endereco";
 	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_sms";
 
-dev.db.migrate: ## Executa as migrações do Django
-	docker exec -i fe.devstack.conta python manage.py migrate
-	docker exec -i fe.devstack.pessoa python manage.py migrate
-	docker exec -i fe.devstack.pagamento python manage.py migrate
-	docker exec -i fe.devstack.endereco python manage.py migrate
-	docker exec -i fe.devstack.sms python manage.py migrate
-
 dev.db.dump: ## Realiza os backups dos bancos utilizados
 	./scripts/dump-db.sh fe_conta
 	./scripts/dump-db.sh fe_pessoa
@@ -85,3 +72,15 @@ dev.web.install: ## Instala as dependências do node
 
 %-restart:
 	docker-compose restart $*
+
+%-reset_db:
+	docker exec -it fe.devstack.$* python manage.py reset_db --noinput
+
+%-migrate:
+	docker exec -i fe.devstack.$* python manage.py migrate
+
+%-createsuperuser:
+	docker exec -it fe.devstack.$* python manage.py createsuperuser
+
+sendsms:
+	docker exec -it fe.devstack.sms python manage.py sendsms
