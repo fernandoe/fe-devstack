@@ -15,7 +15,7 @@ spec:
         spec:
           containers:
           - name: fe-sms-server
-            image: fernandoe/fe-sms-server:feature-enviar-mensagem
+            image: fernandoe/fe-sms-server:0.0.1
             imagePullPolicy: Always
             args:
             - /bin/sh
