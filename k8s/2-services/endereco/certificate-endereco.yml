@@ -1,18 +1,17 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
-  name: s-fernandoe-com
-  namespace: default
+  name: endereco-ms-fernandoe-com
 spec:
-  secretName: s-fernandoe-com-tls
+  secretName: endereco-ms-fernandoe-com-tls
   issuerRef:
     name: letsencrypt-production
-  commonName: s.fernandoe.com
+  commonName: endereco.ms.fernandoe.com
   dnsNames:
-  - s.fernandoe.com
+  - endereco.ms.fernandoe.com
   acme:
     config:
     - http01:
         ingressClass: nginx
       domains:
-      - s.fernandoe.com
+      - endereco.ms.fernandoe.com

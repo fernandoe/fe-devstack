@@ -1,18 +1,17 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
-  name: pessoa-ms-fernandoe-com
-  namespace: default
+  name: conta-ms-fernandoe-com
 spec:
-  secretName: pessoa-ms-fernandoe-com-tls
+  secretName: conta-ms-fernandoe-com-tls
   issuerRef:
     name: letsencrypt-production
-  commonName: pessoa.ms.fernandoe.com
+  commonName: conta.ms.fernandoe.com
   dnsNames:
-  - pessoa.ms.fernandoe.com
+  - conta.ms.fernandoe.com
   acme:
     config:
     - http01:
         ingressClass: nginx
       domains:
-      - pessoa.ms.fernandoe.com
+      - conta.ms.fernandoe.com
