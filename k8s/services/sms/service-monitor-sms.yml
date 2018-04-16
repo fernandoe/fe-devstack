@@ -2,6 +2,8 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: sms
+  labels:
+    app: sms
 spec:
   selector:
     matchLabels:
@@ -11,4 +13,4 @@ spec:
     - default
   endpoints:
   - port: web
-    interval: 30s
+    interval: 10s
