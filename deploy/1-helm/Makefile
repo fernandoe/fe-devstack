@@ -8,8 +8,14 @@ install.cert-manager:
 		--set rbac.create=false \
 		stable/cert-manager
 
+namespace.ms:
+	kubectl config set-context `kubectl config current-context` --namespace=ms
+
 install.nginx-ingress:
-	helm install stable/nginx-ingress --name nginx-ingress -f nginx-ingress/nginx-ingress.yml
+	helm install stable/nginx-ingress \
+	--namespace ms \
+	--name nginx-ingress \
+	-f nginx-ingress/nginx-ingress.yml
 
 install.elasticsearch:
 	helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator

@@ -1,5 +1,5 @@
-namespace.fe:
-	kubectl config set-context `kubectl config current-context` --namespace=fe
+namespace.ms:
+	kubectl config set-context `kubectl config current-context` --namespace=ms
 
 namespace.monitoring:
 	kubectl config set-context `kubectl config current-context` --namespace=monitoring

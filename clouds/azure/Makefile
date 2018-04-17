@@ -8,7 +8,7 @@ aks.microservices.create:
 	az aks create \
 	    --resource-group rg-microservices \
 	    --name c-microservices \
-	    --node-count 2 \
+	    --node-count 3 \
 	    --kubernetes-version 1.9.2 \
 	    --ssh-key-value ~/.ssh/id_rsa_azure.pub > output/c-microservices.json
 
