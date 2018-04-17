@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: fe-server
-        image: fernandoe/fe-server:latest
+        image: fernandoe/fe-server:feature-show-error-message-on-login
         imagePullPolicy: Always
         ports:
         - containerPort: 80
