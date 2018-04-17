@@ -152,7 +152,7 @@ controller:
     ## List of IP addresses at which the controller services are available
     ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
     ##
-    externalIPs: []
+    externalIPs: ["52.226.68.91"]
 
     loadBalancerIP: ""
     loadBalancerSourceRanges: []

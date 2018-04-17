@@ -19,7 +19,7 @@ install.kibana:
 	helm install stable/kibana --namespace monitoring --name kibana
 
 delete.nginx-ingress:
-	helm delete fe nginx-ingress
+	helm del --purge nginx-ingress
 
 #export POD_NAME=$(kubectl get pods --namespace monitoring -l "app=elasticsearch,component=client,release=elasticsearch" -o jsonpath="{.items[0].metadata.name}")
 #echo "Visit http://127.0.0.1:9200 to use Elasticsearch"
