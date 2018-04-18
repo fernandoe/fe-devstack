@@ -10,3 +10,11 @@ create:
 	kubectl create -f fluentd-es-ds.yaml
 	kubectl create -f kibana-deployment.yaml
 	kubectl create -f kibana-service.yaml
+
+delete:
+	kubectl delete -f kibana-service.yaml
+	kubectl delete -f kibana-deployment.yaml
+	kubectl delete -f fluentd-es-ds.yaml
+	kubectl delete -f fluentd-es-configmap.yaml
+	kubectl delete -f es-service.yaml
+	kubectl delete -f es-statefulset.yaml
