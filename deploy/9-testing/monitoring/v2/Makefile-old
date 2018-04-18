@@ -26,8 +26,6 @@
 
 
 
-#namespace.fe:
-#	kubectl config set-context `kubectl config current-context` --namespace=fe
 #
 #get.pods:
 #	kubectl get pods -o wide
