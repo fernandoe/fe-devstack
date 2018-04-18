@@ -7,9 +7,11 @@ secrets:
 services:
 	$(MAKE) -C 2-k8s
 
+namespace.ms:
+	kubectl config set-context `kubectl config current-context` --namespace=ms
 
-#namespace.ms:
-#	kubectl config set-context `kubectl config current-context` --namespace=ms
+
+
 #
 #apply:
 #	kubectl apply --recursive -f .
