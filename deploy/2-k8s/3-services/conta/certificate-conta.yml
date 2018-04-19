@@ -1,0 +1,17 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: conta-ms-fernandoe-com
+spec:
+  secretName: conta-ms-fernandoe-com-tls
+  issuerRef:
+    name: letsencrypt-production
+  commonName: conta.ms.fernandoe.com
+  dnsNames:
+  - conta.ms.fernandoe.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - conta.ms.fernandoe.com
