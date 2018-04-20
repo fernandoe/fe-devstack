@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fe-pagamento
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:

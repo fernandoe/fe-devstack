@@ -10,7 +10,8 @@ services:
 namespace.ms:
 	kubectl config set-context `kubectl config current-context` --namespace=ms
 
-
+image:
+	kubectl set image deployment/fe-server fe-server=fernandoe/fe-server:feature-add-endereco
 
 #
 #apply:
