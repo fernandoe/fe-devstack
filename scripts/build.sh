@@ -7,6 +7,7 @@ projects=(
     "fe-pessoa-server"
     "fe-endereco-server"
     "fe-pagamento-server"
+    "fe-sms-server"
 )
 
 for p in ${projects[*]}

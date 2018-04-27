@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fe-endereco
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: fe-endereco
-        image: fernandoe/fe-endereco-server:latest
+        image: fernandoe/fe-endereco-server:0.0.1
         imagePullPolicy: Always
         ports:
         - containerPort: 8000

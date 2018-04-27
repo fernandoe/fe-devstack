@@ -7,6 +7,9 @@ COMPOSE_PROJECT_NAME=fe
 export DEVSTACK_WORKSPACE
 export COMPOSE_PROJECT_NAME
 
+build:
+	./scripts/build.sh
+
 up:
 	docker-compose up
 
