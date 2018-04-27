@@ -36,6 +36,12 @@ spec:
           - backend:
               serviceName: sms
               servicePort: 80
+    - host: coaching.ms.fernandoe.com
+      http:
+        paths:
+          - backend:
+              serviceName: coaching
+              servicePort: 80
     - host: s.fernandoe.com
       http:
         paths:
@@ -58,6 +64,9 @@ spec:
     - hosts:
         - sms.ms.fernandoe.com
       secretName: sms-ms-fernandoe-com-tls
+    - hosts:
+        - coaching.ms.fernandoe.com
+      secretName: coaching-ms-fernandoe-com-tls
     - hosts:
         - s.fernandoe.com
       secretName: s-fernandoe-com-tls
