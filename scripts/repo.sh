@@ -14,13 +14,14 @@ else
 fi
 
 repos=(
+    "git@github.com:fernandoe/docker-python.git"
+    "git@github.com:fernandoe/django-fe-core.git"
+    "git@github.com:fernandoe/django-fe-jwt.git"
     "git@github.com:fernandoe/fe-endereco-server.git"
     "git@github.com:fernandoe/fe-conta-server.git"
     "git@github.com:fernandoe/fe-pagamento-server.git"
     "git@github.com:fernandoe/fe-pessoa-server.git"
     "git@github.com:fernandoe/fe-server.git"
-    "git@github.com:fernandoe/django-fe-core.git"
-    "git@github.com:fernandoe/django-fe-jwt.git"
     "git@github.com:fernandoe/fe-mopi-sdk.git"
     "git@github.com:fernandoe/fe-sms-server.git"
     "git@github.com:fernandoe/fe-coaching-server.git"
