@@ -74,5 +74,8 @@ spec:
         - coaching.ms.fernandoe.com
       secretName: coaching-ms-fernandoe-com-tls
     - hosts:
+        - task.ms.fernandoe.com
+      secretName: task-ms-fernandoe-com-tls
+    - hosts:
         - s.fernandoe.com
       secretName: s-fernandoe-com-tls
