@@ -42,6 +42,12 @@ spec:
           - backend:
               serviceName: coaching
               servicePort: 80
+    - host: task.ms.fernandoe.com
+      http:
+        paths:
+          - backend:
+              serviceName: task
+              servicePort: 80
     - host: s.fernandoe.com
       http:
         paths:

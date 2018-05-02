@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: fe-task
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: 1-deploy-task
+    spec:
+      containers:
+      - name: fe-task
+        image: fernandoe/fe-task-server:0.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: 'server.settings.docker'
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: fe-task
+                key: database_url

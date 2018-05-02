@@ -1,0 +1,17 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: task-ms-fernandoe-com
+spec:
+  secretName: task-ms-fernandoe-com-tls
+  issuerRef:
+    name: letsencrypt-production
+  commonName: task.ms.fernandoe.com
+  dnsNames:
+  - task.ms.fernandoe.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - task.ms.fernandoe.com

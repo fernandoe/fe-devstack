@@ -24,6 +24,7 @@ repos=(
     "git@github.com:fernandoe/fe-mopi-sdk.git"
     "git@github.com:fernandoe/fe-sms-server.git"
     "git@github.com:fernandoe/fe-coaching-server.git"
+    "git@github.com:fernandoe/fe-task-server.git"
 )
 
 name_pattern=".*fernandoe/(.*).git"
