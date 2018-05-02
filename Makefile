@@ -25,14 +25,17 @@ db.migrate:
 	docker exec -i fe.devstack.pagamento python manage.py migrate
 	docker exec -i fe.devstack.endereco python manage.py migrate
 
-git.clone: ## Clona todos os repositórios do projeto
+git.clone:
 	./scripts/repo.sh clone
 
-git.status: ## Mostra o status dos repositórios do projeto
+git.status:
 	./scripts/repo.sh status
 
-git.pull: ## Atualiza os branchs dos repositórios do projeto
+git.pull:
 	./scripts/repo.sh pull
+
+git.fetch:
+	./scripts/repo.sh fetch
 
 dev.build: ## Realiza o build dos projetos
 	./scripts/build.sh
