@@ -87,3 +87,6 @@ dev.web.install: ## Instala as dependências do node
 
 sendsms:
 	docker exec -it fe.devstack.sms python manage.py sendsms
+
+database.%.create: ## Cria os bancos de dados
+	docker exec -i fe.devstack.mysql mysql -uroot -ppassword -e "create database fe_$*";

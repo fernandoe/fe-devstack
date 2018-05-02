@@ -96,6 +96,40 @@ services:
     stdin_open: true
     tty: true
 
+  coaching:
+    container_name: fe.devstack.coaching
+    image: fernandoe/fe-coaching-server:local
+    ports:
+      - "9005:8000"
+    volumes:
+      - ../fe-coaching-server/src:/app
+    depends_on:
+      - mysql
+      - conta
+    environment:
+      DJANGO_SETTINGS_MODULE: 'server.settings.docker'
+      DATABASE_URL: mysql://root:password@mysql:3306/fe_coaching
+      no_proxy: mysql,conta
+    stdin_open: true
+    tty: true
+
+  task:
+    container_name: fe.devstack.task
+    image: fernandoe/fe-task-server:local
+    ports:
+      - "9006:8000"
+    volumes:
+      - ../fe-task-server/src:/app
+    depends_on:
+      - mysql
+      - conta
+    environment:
+      DJANGO_SETTINGS_MODULE: 'server.settings.docker'
+      DATABASE_URL: mysql://root:password@mysql:3306/fe_task
+      no_proxy: mysql,conta
+    stdin_open: true
+    tty: true
+
   web:
     container_name: fe.devstack.web
     build:

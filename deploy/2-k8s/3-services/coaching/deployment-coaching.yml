@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: fe-coaching
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: 1-deploy-coaching
+    spec:
+      containers:
+      - name: fe-coaching
+        image: fernandoe/fe-coaching-server:0.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: 'server.settings.docker'
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: fe-coaching
+                key: database_url

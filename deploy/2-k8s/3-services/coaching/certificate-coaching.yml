@@ -1,0 +1,17 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: coaching-ms-fernandoe-com
+spec:
+  secretName: coaching-ms-fernandoe-com-tls
+  issuerRef:
+    name: letsencrypt-production
+  commonName: coaching.ms.fernandoe.com
+  dnsNames:
+  - coaching.ms.fernandoe.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - coaching.ms.fernandoe.com

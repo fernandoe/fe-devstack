@@ -22,7 +22,9 @@ deploy.endereco:
 list.pods:
 	kubectl get pods -n ms -o jsonpath="{..image}" |tr -s '[[:space:]]' '\n' |sort |uniq -c
 
-
+#%-shell:
+#	kubectl exec -it `kubectl get pod -l 'service=$*' -o jsonpath='{.items[0].metadata.name}'` -- sh
+kubectl exec -it fe-conta-709893531-rwdw7 -- sh
 #apply:
 #	kubectl apply --recursive -f .
 #
