@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: fe-task
-        image: fernandoe/fe-task-server:0.0.1
+        image: fernandoe/fe-task-server:0.0.2
         imagePullPolicy: Always
         ports:
         - containerPort: 8000

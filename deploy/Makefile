@@ -20,7 +20,7 @@ deploy.endereco:
 	kubectl set image deployment/fe-endereco fe-endereco=fernandoe/fe-endereco-server:acesso-ao-service-de-conta
 
 deploy.task:
-	kubectl set image deployment/fe-task fe-task=fernandoe/fe-task-server:feature-baisc-taks-resources
+	kubectl set image deployment/fe-task fe-task=fernandoe/fe-task-server:0.0.2
 
 list.pods:
 	kubectl get pods -n ms -o jsonpath="{..image}" |tr -s '[[:space:]]' '\n' |sort |uniq -c
