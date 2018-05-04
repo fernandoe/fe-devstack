@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         app: 1-deploy-task
+        service: task
     spec:
       containers:
       - name: fe-task

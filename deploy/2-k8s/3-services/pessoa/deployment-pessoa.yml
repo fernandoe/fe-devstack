@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         app: 1-deploy-pessoa
+        service: pessoa
     spec:
       containers:
       - name: fe-pessoa

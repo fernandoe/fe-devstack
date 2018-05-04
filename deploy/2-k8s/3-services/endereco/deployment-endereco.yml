@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         app: 1-deploy-endereco
+        service: endereco
     spec:
       containers:
       - name: fe-endereco

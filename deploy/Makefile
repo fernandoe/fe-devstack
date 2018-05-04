@@ -22,14 +22,20 @@ deploy.endereco:
 deploy.task:
 	kubectl set image deployment/fe-task fe-task=fernandoe/fe-task-server:0.0.2
 
+deploy.coaching:
+	kubectl set image deployment/fe-coaching fe-coaching=fernandoe/fe-coaching-server:release-0.0.2
+
 list.pods:
 	kubectl get pods -n ms -o jsonpath="{..image}" |tr -s '[[:space:]]' '\n' |sort |uniq -c
 
-#%-shell:
-#	kubectl exec -it `kubectl get pod -l 'service=$*' -o jsonpath='{.items[0].metadata.name}'` -- sh
-#kubectl exec -it fe-conta-709893531-rwdw7 -- sh
-#apply:
-#	kubectl apply --recursive -f .
-#
-#browser.kibana:
-#	kubectl port-forward -n monitoring kibana-59f5dddb76-gb2bb 9443:443
+%-shell:
+	kubectl exec -it `kubectl get pod -l 'service=$*' -o jsonpath='{.items[0].metadata.name}'` -- sh
+
+%-reset_db:
+	kubectl exec -it `kubectl get pod -l 'service=$*' -o jsonpath='{.items[0].metadata.name}'` -- python manage.py reset_db --noinput
+
+%-migrate:
+	kubectl exec -it `kubectl get pod -l 'service=$*' -o jsonpath='{.items[0].metadata.name}'` -- python manage.py migrate
+
+%-createsuperuser:
+	kubectl exec -it `kubectl get pod -l 'service=$*' -o jsonpath='{.items[0].metadata.name}'` -- python manage.py createsuperuser

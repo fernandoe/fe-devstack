@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         app: 1-deploy-pagamento
+        service: pagamento
     spec:
       containers:
       - name: fe-pagamento

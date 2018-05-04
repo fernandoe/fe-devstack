@@ -8,6 +8,7 @@ spec:
     metadata:
       labels:
         app: 1-deploy-coaching
+        service: coaching
     spec:
       containers:
       - name: fe-coaching
