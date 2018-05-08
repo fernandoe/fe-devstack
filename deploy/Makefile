@@ -25,6 +25,9 @@ deploy.task:
 deploy.coaching:
 	kubectl set image deployment/fe-coaching fe-coaching=fernandoe/fe-coaching-server:release-0.0.2
 
+deploy.pessoa:
+	kubectl set image deployment/fe-pessoa fe-pessoa=fernandoe/fe-pessoa-server:release-0.0.1
+
 list.pods:
 	kubectl get pods -n ms -o jsonpath="{..image}" |tr -s '[[:space:]]' '\n' |sort |uniq -c
 
